@@ -2,12 +2,27 @@
 <html>
 <head>
     <title>jmespath evaluator</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="style/pure-release-1.0.0/pure-min.css"/>
-    <script type="javascript" src="script/jquery-3.2.1.min.js"></script>
+    <script src="script/jquery-3.2.1.min.js"></script>
+    <script src="script/evaluate.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-Hi
+    <form class="pure-form pure-form-stacked">
+        <fieldset>
+            <legend>jmespath evaluator</legend>
+
+            <label for="expression">Expression</label>
+            <input id="expression" class="pure-input-2-3" type="text"/>
+
+            <label for="json">JSON</label>
+            <textarea id="json" class="pure-input-1" type="text" rows="30"></textarea>
+
+            <button type="button" class="pure-button pure-button-primary" onclick="evaluateExpression()">Evaluate</button>
+
+            <span id="errorMsg" class="pure-form-message" style="color:red"></span>
+        </fieldset>
+    </form>
 </body>
 </html>
