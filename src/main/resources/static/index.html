@@ -17,11 +17,15 @@
             <input id="expression" class="pure-input-2-3" type="text"/>
 
             <label for="json">JSON</label>
-            <textarea id="json" class="pure-input-1" type="text" rows="30"></textarea>
+            <textarea id="json" class="pure-input-1" type="text" rows="15"></textarea>
 
             <button type="button" class="pure-button pure-button-primary" onclick="evaluateExpression()">Evaluate</button>
 
             <span id="errorMsg" class="pure-form-message" style="color:red"></span>
+        </fieldset>
+        <fieldset>
+            <label for="result">Result</label>
+            <textarea id="result" class="pure-input-1" type="text" rows="30" readonly></textarea>
         </fieldset>
     </form>
 </body>
