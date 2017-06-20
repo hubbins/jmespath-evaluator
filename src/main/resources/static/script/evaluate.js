@@ -1,17 +1,32 @@
+// simple javascript that may be painful to look at
 
 evaluateExpression = function() {
+    // clear previous values
     $("#errorMsg").text("");
     $("#result").text("");
 
+    // get edit box text and make sure there is some data
     var exprText = $.trim($("#expression").val());
-    var json = $.trim($("#json").val());
+    var jsonText = $.trim($("#json").val());
 
-    if (exprText === "" || json === "") {
+    if (exprText === "" || jsonText === "") {
         $("#errorMsg").text("Provide expression and JSON values.");
         return;
     }
 
+    // post the request and display the result
+    $.ajax({
+        url: "evaluator",
+        method: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({ expression: exprText, json: jsonText })
+    }).done(function(response) {
+        if (response.result.length > 0)
+            $("#result").text(response.result);
+        if (response.errorMessage.length > 0)
+            $("#errorMsg").text(response.errorMessage);
+    }).fail(function( jqXHR, textStatus ) {
+        $("#errorMsg").text("Error: " + textStatus);
+    });
 }
-
-
-

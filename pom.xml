@@ -47,11 +47,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>io.burt</groupId>
-            <artifactId>jmespath</artifactId>
-            <version>0.2.0</version>
-        </dependency>
+		<dependency>
+			<groupId>io.burt</groupId>
+			<artifactId>jmespath-jackson</artifactId>
+			<version>0.2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

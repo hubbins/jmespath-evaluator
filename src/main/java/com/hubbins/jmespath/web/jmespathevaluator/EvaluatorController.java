@@ -1,17 +1,36 @@
 package com.hubbins.jmespath.web.jmespathevaluator;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import com.fasterxml.jackson.databind.JsonNode;
+
+import io.burt.jmespath.JmesPath;
+import io.burt.jmespath.Expression;
+import io.burt.jmespath.jackson.JacksonRuntime;
 
 @Controller
+@RequestMapping("/evaluator")
 public class EvaluatorController {
 
-    @RequestMapping("/evaluate")
-    public String evaluate(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "evaluate";
+    @RequestMapping(method=RequestMethod.POST)
+    public @ResponseBody EvaluatorResponse evaluate(@RequestBody EvaluatorRequest request) {
+        String response = "", errorMessage = "";
+
+        JmesPath<JsonNode> jmespath = new JacksonRuntime();
+        try {
+            Expression<JsonNode> expression = jmespath.compile(request.getExpression());
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            JsonNode jsonObj = mapper.readTree(request.getJson());
+            JsonNode result = expression.search(jsonObj);
+            response = mapper.writeValueAsString(result);
+        } catch (Exception ex) {
+            errorMessage = ex.getMessage();
+        }
+
+        return new EvaluatorResponse(response, errorMessage);
     }
 
 }
