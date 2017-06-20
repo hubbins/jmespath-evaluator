@@ -14,6 +14,8 @@ evaluateExpression = function() {
         return;
     }
 
+    localStorage.setItem("json_value", jsonText);
+
     // post the request and display the result
     $.ajax({
         url: "evaluator",
@@ -29,4 +31,11 @@ evaluateExpression = function() {
     }).fail(function( jqXHR, textStatus ) {
         $("#errorMsg").text("Error: " + textStatus);
     });
+}
+
+loadValues = function() {
+    var json = localStorage.getItem("json_value");
+    if (json != null) {
+        $("#json").text(json);
+    }
 }
