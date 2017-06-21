@@ -16,6 +16,9 @@ evaluateExpression = function() {
 
     localStorage.setItem("json_value", jsonText);
 
+    // save the scratchpad
+    localStorage.setItem("scratchpad_value", $("#scratchpad").val());
+
     // post the request and display the result
     $.ajax({
         url: "evaluator",
@@ -37,5 +40,10 @@ loadValues = function() {
     var json = localStorage.getItem("json_value");
     if (json != null) {
         $("#json").text(json);
+    }
+
+    var scratchpadValue = localStorage.getItem("scratchpad_value");
+    if (scratchpadValue != null) {
+        $("#scratchpad").text(scratchpadValue);
     }
 }

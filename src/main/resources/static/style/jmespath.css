@@ -1,0 +1,46 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(61, 146, 201);
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* LAYOUT CSS */
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+#layout {
+    padding: 0;
+}
+
+.sidebar {
+
+}
+
+.content {
+    padding: 2em 1em 0;
+}
+
+@media (min-width: 48em) {
+    .content {
+        padding: 2em 3em 0;
+        margin-right: 25%;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 10px;
+        bottom: 10px;
+        margin-left: 75%;
+    }
+}

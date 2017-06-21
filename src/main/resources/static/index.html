@@ -4,32 +4,49 @@
     <title>jmespath evaluator</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="style/pure-release-1.0.0/pure-min.css"/>
+    <link rel="stylesheet" href="style/jmespath.css"/>
     <script src="script/jquery-3.2.1.min.js"></script>
     <script src="script/evaluate.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <form class="pure-form pure-form-stacked">
-        <fieldset>
-            <legend><a href="http://jmespath.org/" target="_blank">JMESPath</a> evaluator</legend>
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+                    <legend><a href="http://jmespath.org/" target="_blank">JMESPath</a> evaluator</legend>
 
-            <label for="expression">Expression</label>
-            <input id="expression" class="pure-input-2-3" type="text"/>
+                    <label for="expression">Expression</label>
+                    <input id="expression" class="pure-input-3-4" type="text"/>
 
-            <label for="json">JSON</label>
-            <textarea id="json" class="pure-input-1" type="text" rows="15"></textarea>
+                    <label for="json">JSON</label>
+                    <textarea id="json" class="pure-input-1" type="text" rows="15"></textarea>
 
-            <button type="button" class="pure-button pure-button-primary" onclick="evaluateExpression()">Evaluate</button>
+                    <button type="button" class="pure-button pure-button-primary" onclick="evaluateExpression()">Evaluate
+                    </button>
 
-            <span id="errorMsg" class="pure-form-message" style="color:red"></span>
-        </fieldset>
-        <fieldset>
-            <label for="result">Result</label>
-            <textarea id="result" class="pure-input-1" type="text" rows="30" readonly></textarea>
-        </fieldset>
-    </form>
-    <script>
-        $(document).ready(function(){ loadValues(); });
-    </script>
+                    <span id="errorMsg" class="pure-form-message" style="color:red"></span>
+                </fieldset>
+                <fieldset>
+                    <label for="result">Result</label>
+                    <textarea id="result" class="pure-input-1" type="text" rows="30" readonly></textarea>
+                </fieldset>
+            </form>
+        </div>
+        <div class="sidebar pure-u-1 pure-u-md-1">
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+                    <label for="scratchpad">Scratchpad</label>
+                    <textarea id="scratchpad" class="pure-input-1" type="text" rows="30"></textarea>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        loadValues();
+    });
+</script>
 </body>
 </html>
