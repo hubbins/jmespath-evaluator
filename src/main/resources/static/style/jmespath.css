@@ -24,11 +24,11 @@ a:focus {
 }
 
 .sidebar {
-
+    padding: 2em 0.3em 0;
 }
 
 .content {
-    padding: 2em 1em 0;
+    padding: 2em 0.3em 0;
 }
 
 @media (min-width: 48em) {

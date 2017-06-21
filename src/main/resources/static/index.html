@@ -11,13 +11,13 @@
 </head>
 <body>
     <div id="layout" class="pure-g">
-        <div class="content pure-u-1 pure-u-md-3-4">
+        <div class="content pure-u-3-4 pure-u-md-3-4">
             <form class="pure-form pure-form-stacked">
                 <fieldset>
                     <legend><a href="http://jmespath.org/" target="_blank">JMESPath</a> evaluator</legend>
 
                     <label for="expression">Expression</label>
-                    <input id="expression" class="pure-input-3-4" type="text"/>
+                    <input id="expression" class="pure-input-3-4" type="text"  onkeypress="return checkEnter(event)"/>
 
                     <label for="json">JSON</label>
                     <textarea id="json" class="pure-input-1" type="text" rows="15"></textarea>
@@ -33,7 +33,7 @@
                 </fieldset>
             </form>
         </div>
-        <div class="sidebar pure-u-1 pure-u-md-1">
+        <div class="sidebar pure-u-1-4 pure-u-md-1-4">
             <form class="pure-form pure-form-stacked">
                 <fieldset>
                     <label for="scratchpad">Scratchpad</label>
@@ -42,11 +42,5 @@
             </form>
         </div>
     </div>
-</body>
-<script>
-    $(document).ready(function () {
-        loadValues();
-    });
-</script>
 </body>
 </html>

@@ -47,3 +47,14 @@ loadValues = function() {
         $("#scratchpad").text(scratchpadValue);
     }
 }
+
+checkEnter = function(e) {
+    if (e.keyCode == 13) {
+        evaluateExpression();
+        return false;
+    }
+}
+
+$(document).ready(function () {
+    loadValues();
+});
